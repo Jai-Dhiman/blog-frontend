@@ -6,7 +6,9 @@ function App() {
   return (
     <div>
       <Header />
-      <PostPages />
+      <div className="container">
+        <PostPages />
+      </div>
       <Footer />
     </div>
   );

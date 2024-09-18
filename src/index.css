@@ -1,7 +1,131 @@
-#posts-index img {
-  width: 100px;
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+/* Header styles */
+header {
+  background: #3e4e43;
+  color: #ffffff;
+  padding-top: 25px;
+  min-height: 50px;
+  border-bottom: #080808 3px solid;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+header a:hover {
+  color: #4d9c6e;
+  font-weight: bold;
+}
+
+/* Card styles */
+#posts-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 300px;
+  box-sizing: border-box;
+}
+
+.post-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.post-card h2 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #35424a;
+}
+
+.post-card .body {
+  color: #666;
+}
+
+/* Form styles */
+#posts-new {
+  background: #fff;
+  padding: 35px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+#posts-new h1 {
+  color: #35424a;
+}
+
+#posts-new div {
+  margin-bottom: 15px;
+}
+
+#posts-new label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#posts-new input[type="text"],
+#posts-new input[type="url"],
+#posts-new textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#posts-new button {
+  background: #4d9c6e;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#posts-new button:hover {
+  background: #35424a;
+}
+
+/* Footer styles */
+footer {
+  background: #3e4e43;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+/* Maintain smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
