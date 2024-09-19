@@ -1,5 +1,6 @@
 import { PostIndex } from "./PostIndex";
 import { PostNew } from "./PostNew";
+import { Modal } from "./Modal";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -23,6 +24,9 @@ export function PostPages() {
     <div>
       <PostNew />
       <PostIndex posts={posts} />
+      <Modal show={true}>
+        <p>TEST</p>
+      </Modal>
     </div>
   );
 }
