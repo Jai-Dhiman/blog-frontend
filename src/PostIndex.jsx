@@ -7,7 +7,7 @@ export function PostIndex(props) {
       <div className="container">
         {props.posts.map((post) => (
           <div key={post.id} className="post-card">
-            <img src={post.image} alt={post.title} />
+            <img src={post.image} />
             <h2>{post.title}</h2>
             <div className="body">{post.body}</div>
           </div>
