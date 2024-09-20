@@ -9,9 +9,9 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 90%;
+  max-width: 1200px;
   margin: auto;
-  overflow: hidden;
   padding: 0 20px;
 }
 
@@ -37,21 +37,32 @@ header a:hover {
   font-weight: bold;
 }
 
-/* Card styles */
+/* ... (keep all the previous CSS rules) ... */
+
+/* Updated Card styles */
 #posts-index {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px 0;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#posts-index h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .post-card {
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
   padding: 20px;
-  width: 300px;
   box-sizing: border-box;
 }
 
@@ -70,7 +81,30 @@ header a:hover {
 
 .post-card .body {
   color: #666;
+  margin-bottom: 10px;
 }
+
+.post-card button {
+  background: #4d9c6e;
+  color: #ffffff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.post-card button:hover {
+  background: #35424a;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ... (keep all the other CSS rules) ... */
 
 /* Form styles */
 #posts-new {
@@ -128,4 +162,11 @@ footer {
 /* Maintain smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  #posts-index {
+    grid-template-columns: 1fr;
+  }
 }

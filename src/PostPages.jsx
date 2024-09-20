@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 export function PostPages() {
   const [posts, setPosts] = useState([]);
+  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
 
   const handleIndex = () => {
     axios
@@ -19,12 +20,20 @@ export function PostPages() {
       });
   };
 
+  const handleShow = () => {
+    setIsPostsShowVisible(true);
+  };
+
+  const handleClose = () => {
+    setIsPostsShowVisible(false);
+  };
+
   useEffect(handleIndex, []);
   return (
     <div>
       <PostNew />
-      <PostIndex posts={posts} />
-      <Modal show={true}>
+      <PostIndex posts={posts} onShow={handleShow} />
+      <Modal show={isPostsShowVisible} onClose={handleClose}>
         <p>TEST</p>
       </Modal>
     </div>
