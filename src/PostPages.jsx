@@ -1,5 +1,6 @@
 import { PostIndex } from "./PostIndex";
 import { PostNew } from "./PostNew";
+import { PostShow } from "./PostShow";
 import { Modal } from "./Modal";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -7,6 +8,7 @@ import { useState, useEffect } from "react";
 export function PostPages() {
   const [posts, setPosts] = useState([]);
   const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
+  const [currentPost, setCurrentPost] = useState({});
 
   const handleIndex = () => {
     axios
@@ -20,7 +22,8 @@ export function PostPages() {
       });
   };
 
-  const handleShow = () => {
+  const handleShow = (post) => {
+    setCurrentPost(post);
     setIsPostsShowVisible(true);
   };
 
@@ -29,12 +32,13 @@ export function PostPages() {
   };
 
   useEffect(handleIndex, []);
+
   return (
     <div>
       <PostNew />
       <PostIndex posts={posts} onShow={handleShow} />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <p>TEST</p>
+        <PostShow currentPost={currentPost} />
       </Modal>
     </div>
   );
