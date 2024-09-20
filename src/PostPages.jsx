@@ -22,6 +22,18 @@ export function PostPages() {
       });
   };
 
+  const handleCreate = (postData) => {
+    axios
+      .post("http://localhost:3000/posts.json", postData)
+      .then(function (response) {
+        console.log(response.data);
+        setPosts([response.data, ...posts]);
+      })
+      .catch(function (error) {
+        console.error("There was an error creating the post:", error);
+      });
+  };
+
   const handleShow = (post) => {
     setCurrentPost(post);
     setIsPostsShowVisible(true);
@@ -37,7 +49,7 @@ export function PostPages() {
 
   return (
     <div>
-      <PostNew />
+      <PostNew onCreatePost={handleCreate} />
       <PostIndex posts={posts} onShow={handleShow} />
       <Modal isVisible={isPostsShowVisible} onClose={handleClose}>
         <PostShow post={currentPost} />
