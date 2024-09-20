@@ -1,11 +1,11 @@
-export function PostShow({ currentPost }) {
+export function PostShow({ post }) {
   return (
     <div>
-      <h2>Title: {currentPost.title}</h2>
-      <p>Body: {currentPost.body}</p>
-      {currentPost.image && (
+      <h2>{post?.title || "N/A"}</h2>
+      <p>{post?.body || "N/A"}</p>
+      {post?.image && (
         <p>
-          Image: <img src={currentPost.image} />
+          <img src={post.image} alt={post.title} style={{ maxWidth: "50%" }} />
         </p>
       )}
     </div>

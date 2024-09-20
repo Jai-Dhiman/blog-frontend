@@ -1,16 +1,30 @@
+import React, { useEffect } from "react";
 import "./Modal.css";
 
-export function Modal(props) {
-  if (props.show) {
-    return (
-      <div className="modal-background">
-        <section className="modal-main">
-          {props.children}
-          <button className="close" type="button" onClick={props.onClose}>
-            &#x2715;
-          </button>
-        </section>
+export function Modal({ isVisible, onClose, children }) {
+  useEffect(() => {
+    if (isVisible) {
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+    }
+
+    // Cleanup function to remove the class when component unmounts
+    return () => {
+      document.body.classList.remove("modal-open");
+    };
+  }, [isVisible]);
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="modal-background">
+      <div className="modal-main">
+        <button className="close" onClick={onClose}>
+          &times;
+        </button>
+        {children}
       </div>
-    );
-  }
+    </div>
+  );
 }

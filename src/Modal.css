@@ -1,3 +1,8 @@
+/* Add this to the top of your CSS file */
+body.modal-open {
+  overflow: hidden;
+}
+
 .modal-background {
   display: block;
   position: fixed;
@@ -7,16 +12,15 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
+  overflow-y: auto; /* Allow scrolling within the modal if content is too long */
 }
 
 .modal-main {
-  position: fixed;
+  position: relative; /* Change from fixed to relative */
   background: white;
   width: 80%;
-  height: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 600px; /* Add a max-width for better responsiveness */
+  margin: 2rem auto; /* Center the modal and add some vertical margin */
   padding: 1em;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

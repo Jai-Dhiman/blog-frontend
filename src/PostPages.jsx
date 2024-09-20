@@ -31,14 +31,16 @@ export function PostPages() {
     setIsPostsShowVisible(false);
   };
 
-  useEffect(handleIndex, []);
+  useEffect(() => {
+    handleIndex();
+  }, []);
 
   return (
     <div>
       <PostNew />
       <PostIndex posts={posts} onShow={handleShow} />
-      <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <PostShow currentPost={currentPost} />
+      <Modal isVisible={isPostsShowVisible} onClose={handleClose}>
+        <PostShow post={currentPost} />
       </Modal>
     </div>
   );
