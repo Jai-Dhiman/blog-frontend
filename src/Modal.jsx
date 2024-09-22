@@ -24,6 +24,9 @@ export function Modal({ isVisible, onClose, children }) {
           &times;
         </button>
         {children}
+        <button className="delete" onClick={onDelete}>
+          Delete Post
+        </button>
       </div>
     </div>
   );

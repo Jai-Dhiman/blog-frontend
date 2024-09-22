@@ -1,22 +1,9 @@
-import React, { useState } from "react";
-
 export function PostNew(props) {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [image, setImage] = useState("");
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    const postData = {
-      title: title,
-      body: body,
-      image: image,
-    };
-    props.onCreatePost(postData);
-    // Clear the form
-    setTitle("");
-    setBody("");
-    setImage("");
+    const params = new FormData(event.target);
+    props.onCreate(params);
+    event.target.reset();
   };
 
   return (
@@ -24,16 +11,13 @@ export function PostNew(props) {
       <h1>New post</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title">Title: </label>
-          <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+          Title: <input name="title" type="text" />
         </div>
         <div>
-          <label htmlFor="body">Body: </label>
-          <textarea id="body" value={body} onChange={(e) => setBody(e.target.value)} required></textarea>
+          Body: <input name="body" type="text" />
         </div>
         <div>
-          <label htmlFor="image">Image URL: </label>
-          <input type="url" id="image" value={image} onChange={(e) => setImage(e.target.value)} />
+          Image: <input name="image" type="text" />
         </div>
         <button type="submit">Submit</button>
       </form>
