@@ -29,14 +29,15 @@ export function PostPages() {
   };
 
   const handleCreate = (params) => {
-    console.log("handling create");
+    // console.log("handling create");
     axios.post("http://localhost:3000/posts.json", params).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setPosts([...posts, response.data]);
     });
   };
 
   const handleDestroy = (post) => {
+    console.log("handling destroy");
     axios.delete("http://localhost:3000/posts/11.json", post).then(function (response) {
       console.log("post deleted");
     });
